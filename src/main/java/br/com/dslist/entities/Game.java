@@ -23,15 +23,20 @@ public class Game {
 	private Integer year;
 	private String platforms;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")// PARA EVITAR O ERRO DE SER MUITO LONGO, DAI O JPA RECEBE COMO UM CAMPO DE TEXTO AO INVES DE UM VARCHAR COM DEFINIÇÃO
 	private String shortDescription;
+	
+	@Column(columnDefinition = "TEXT")// PARA EVITAR O ERRO DE SER MUITO LONGO, DAI O JPA RECEBE COMO UM CAMPO DE TEXTO AO INVES DE UM VARCHAR COM DEFINIÇÃO
 	private String longDescription;
+	private Double score;
 	
 	public Game() {
 		
 	}
 
 	public Game(Long id, String title, String genre, Integer year, String platforms, String imgUrl,
-			String shortDescription, String longDescription) {
+			String shortDescription, String longDescription, Double score) {
 		this.id = id;
 		this.title = title;
 		this.genre = genre;
@@ -40,6 +45,7 @@ public class Game {
 		this.imgUrl = imgUrl;
 		this.shortDescription = shortDescription;
 		this.longDescription = longDescription;
+		this.score = score;
 	}
 
 	public Long getId() {
@@ -104,6 +110,14 @@ public class Game {
 
 	public void setLongDescription(String longDescription) {
 		this.longDescription = longDescription;
+	}
+
+	public Double getScore() {
+		return score;
+	}
+
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
 	@Override
